@@ -1,0 +1,61 @@
+###
+curl -X POST http://localhost:5000/api/auth/register \
+-H "Content-Type: application/json" \
+-d '{
+  "name":"Jai",
+  "email":"jai@gmail.com",
+  "password":"123456"
+}'
+###
+curl -X POST http://localhost:5000/api/auth/login \
+-H "Content-Type: application/json" \
+-d '{
+  "email":"Jaiindra@gmail.com",
+  "password":"123456"
+}'
+###
+curl -X GET http://localhost:5000/api/auth/me \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqYWlAZ21haWwuY29tIiwiaWF0IjoxNzgyMDI2NDQ1LCJleHAiOjE3ODI2MzEyNDV9.miox_v1b7yYq2ZOZJZMUU4FDtz9E16we3Dexph5uXqE" \
+-H "Content-Type: application/json"
+###
+curl -X POST http://localhost:5000/api/trips \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJKYWlpbmRyYUBnbWFpbC5jb20iLCJpYXQiOjE3ODIxMjkyNjgsImV4cCI6MTc4MjczNDA2OH0.4ueA1BytW6LF3TFPYIZU4OWl5mg2lCRRAmlqBHe7M-s" \
+-H "Content-Type: application/json" \
+-d '{
+  "destination":"Canada",
+  "durationDays":5,
+  "budgetTier":"medium",
+  "interests":["museums","food","architecture"]
+}'
+###
+curl -X GET http://localhost:5000/api/trips \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqYWlAZ21haWwuY29tIiwiaWF0IjoxNzgyMDIyMzA2LCJleHAiOjE3ODI2MjcxMDZ9.GSXPm4beaGUN3ylAXaJ_09ul4d9O1vIcCvsXxycwdxs" \
+-H "Content-Type: application/json" \
+-d '{
+  "destination":"Tokyo",
+  "durationDays":5,
+  "budgetTier":"Medium",
+  "interests":["Food","Culture","Shopping"]
+}'
+###
+curl -X GET http://localhost:5000/api/trips \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqYWlAZ21haWwuY29tIiwiaWF0IjoxNzgyMDI2NTQzLCJleHAiOjE3ODI2MzEzNDN9.x2_knKsnJVQ9oAZzHv9exYILwQGhOS3fmAWFWPHywck" \
+-H "Content-Type: application/json"
+###
+curl -X POST http://localhost:5000/api/trips/generate \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInJvbGUiOiJTdGFmZiIsImlhdCI6MTc4MTY2MTc5NCwiZXhwIjoxNzgxNjY1Mzk0fQ.FGwJRtXpeuA7LEdwgeQ5kvxVbb-KestFCZUY6Zm7TCw" \
+-H "Content-Type: application/json" \
+-d '{
+  "destination":"canada",
+  "durationDays":5,
+  "budgetTier":"Medium",
+  "interests":[
+    "Food",
+    "Culture",
+    "Shopping"
+  ]
+}'
+###
+curl -X GET http://localhost:5000/api/trips/1 \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqYWlAZ21haWwuY29tIiwiaWF0IjoxNzgyMDIyMzA2LCJleHAiOjE3ODI2MjcxMDZ9.GSXPm4beaGUN3ylAXaJ_09ul4d9O1vIcCvsXxycwdxs" \
+-H "Content-Type: application/json"
